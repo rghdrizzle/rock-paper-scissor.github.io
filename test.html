@@ -1,0 +1,103 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    console.log("Welcome to rock/paper/scissors");
+
+    function computerchoice(){
+    let choice;
+      let y = Math.random() * 3;
+      let x =Math.round(y);
+      if (x==0){
+          x =1;
+      }
+      switch(x){
+        case 1:
+          choice = "rock";
+          return choice;
+          break;
+        case 2:
+          choice = "paper";
+          return choice;
+          break;
+        case 3:
+          choice = "scissor";
+          return choice;
+          break;
+      }
+
+  }
+
+  function playerchoice(){
+    let x = prompt("choose(rock/paper/scissor)");
+    let ans =x.toLowerCase();
+
+    return ans;
+  }
+
+  function round(player,comp){
+    if(player=="rock" && comp =="paper"){
+      return "YOU LOST! paper beats rock";
+    }
+    else if(player=="rock" && comp =="scissor"){
+      return "YOU WON! rock beats scissors";
+    }
+    else if(player=="rock" && comp =="rock"){
+     return "DRAW !!";
+    }
+    else if(player=="paper" && comp =="rock"){
+      return "YOU WON! paper beats rock";
+    }
+    else if(player=="paper" && comp =="scissor"){
+      return "YOU LOST! scissor beats paper";
+    }
+    else if(player=="paper" && comp =="paper"){
+      return "DRAW !!";
+    }
+    else if(player=="scissor" && comp =="rock"){
+        return "YOU LOST! rock beats scissors";
+    }else if(player=="scissor" && comp =="paper"){
+      return "YOU WON! scissor beat paper";
+    }else if(player=="scissor" && comp =="scissor"){
+        return "DRAW !!";
+    }
+  }
+
+
+
+  function game(){
+    let count=0;
+    let count2=0;
+    for( i=1 ;i<6;i++){
+      let p1= computerchoice();
+      let p2 =playerchoice();
+      let result = round(p2,p1);
+      console.log(result);
+      if (result.includes("WON")){
+        count++;
+        
+      }else if(result.includes("LOST")){
+        count2++;
+      }
+
+      
+      
+    }
+    if( count > count2){
+        return "You won the game !!!";
+    }else if( count2 > count){
+        return "You lost , the Computer Won, better luck next time";
+    }else{
+        return "ITS A DRAWW!!";
+    }
+   
+   
+    
+  }let gamee = game();
+  console.log(gamee);
+</script>
+</body>
+</html>
